@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CodeFarm - Aprenda Programando</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+            rel="stylesheet">
+        <!-- Favicon SVG -->
+        <link rel="icon" type="image/svg+xml"
+            href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2334d399'/%3E%3Cstop offset='100%25' stop-color='%2316a34a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='%230a0f0c'/%3E%3Ctext x='50' y='32' font-size='18' text-anchor='middle' fill='%2334d399'%3E%7B%20%7D%3C/text%3E%3Cpath d='M50 38 C38 38 34 48 34 54 C34 66 46 70 50 78 C54 70 66 66 66 54 C66 48 62 38 50 38 Z' fill='url(%23g)'/%3E%3Crect x='47' y='70' width='6' height='10' rx='2' fill='%238b5a2b'/%3E%3C/svg%3E">
+
+        <!-- Atalho iPhone -->
+        <link rel="apple-touch-icon" sizes="180x180"
+            href="img/CodeFarm_LOGO_ATALHO.png">
+        <link rel="icon" type="image/png" sizes="32x32"
+            href="img/CodeFarm_LOGO_ATALHO.png">
+        <link rel="icon" type="image/png" sizes="16x16"
+            href="img/CodeFarm_LOGO_ATALHO.png">
+
+        <!-- Apple Touch Icon -->
+        <link rel="apple-touch-icon" sizes="180x180"
+            href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2334d399'/%3E%3Cstop offset='100%25' stop-color='%2316a34a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='180' rx='40' fill='%230a0f0c'/%3E%3Ctext x='90' y='55' font-size='36' text-anchor='middle' fill='%2334d399'%3E%7B%20%7D%3C/text%3E%3Cpath d='M90 70 C68 70 60 88 60 100 C60 126 82 134 90 154 C98 134 120 126 120 100 C120 88 112 70 90 70 Z' fill='url(%23g)'/%3E%3Crect x='86' y='140' width='8' height='18' rx='3' fill='%238b5a2b'/%3E%3C/svg%3E">
+
+        <!-- PWA / Mobile -->
+        <meta name="theme-color" content="#16a34a">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent">
+        <meta name="apple-mobile-web-app-title" content="CodeFarm">
+        <meta name="application-name" content="CodeFarm">
+        <meta name="description"
+            content="Aprenda lógica de programação cultivando código 🌱">
+
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <div class="clouds">
+            <div class="cloud">☁️</div>
+            <div class="cloud">☁️</div>
+            <div class="cloud">☁️</div>
+        </div>
+
+        <div class="celestial" id="celestial" title="Alternar tema">☀️</div>
+
+        <header>
+            <div class="logo">
+                <span class="logo-icon">🌾</span>
+                <h1>CodeFarm</h1>
+            </div>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-icon">💰</span>
+                <span class="stat-value money" id="money">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-icon">⭐</span>
+                <span class="stat-value level">Nível <span
+                        id="level">1</span></span>
+            </div>
+            <div class="stat">
+                <span id="levelBadge"
+                    class="level-badge beginner">Iniciante</span>
+            </div>
+            <div class="stat">
+                <span class="stat-icon">🏆</span>
+                <span class="stat-value" id="completedCount">0/10</span>
+            </div>
+        </div>
+
+        <main class="container">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Farm -->
+                <div class="farm-card">
+                    <h2 class="section-title">🌻 Sua Fazenda</h2>
+                    <div class="farm-field" id="farmField"></div>
+
+                    <div class="resources-panel">
+                        <div class="resource">
+                            <div class="resource-icon">💧</div>
+                            <div class="resource-value"
+                                id="waterResource">∞</div>
+                            <div class="resource-label">Água</div>
+                        </div>
+                        <div class="resource">
+                            <div class="resource-icon">🌱</div>
+                            <div class="resource-value"
+                                id="seedsResource">∞</div>
+                            <div class="resource-label">Sementes</div>
+                        </div>
+                        <div class="resource">
+                            <div class="resource-icon">⏱️</div>
+                            <div class="resource-value"
+                                id="cyclesResource">-</div>
+                            <div class="resource-label">Ciclos</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simulation Log -->
+                <div class="simulation-panel">
+                    <h2 class="section-title">📊 Simulação</h2>
+                    <div class="sim-log" id="simLog">
+                        <div class="sim-log-entry">
+                            <span class="step">--</span>
+                            <span class="action">Aguardando execução...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documentation -->
+                <div class="docs-panel">
+                    <h2 class="section-title">📚 Referência</h2>
+                    <div class="docs-content" id="docsContent">
+                        <h4>Estados da Planta</h4>
+                        <ul>
+                            <li><code>"vazia"</code> - Sem planta</li>
+                            <li><code>"semente"</code> - Recém plantada</li>
+                            <li><code>"crescendo"</code> - Em crescimento</li>
+                            <li><code>"seca"</code> - Precisa de água</li>
+                            <li><code>"pronta"</code> - Pode colher!</li>
+                        </ul>
+
+                        <h4>Funções Disponíveis</h4>
+                        <ul>
+                            <li><code>plantar()</code> - Planta semente</li>
+                            <li><code>regar()</code> - Rega a planta</li>
+                            <li><code>colher()</code> - Colhe planta pronta</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Progress -->
+                <div class="progress-section">
+                    <div class="progress-header">
+                        <span>📊 Progresso Geral</span>
+                        <span id="xpDisplay">0 / 100 XP</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressBar"
+                            style="width: 0%"></div>
+                    </div>
+                    <div class="level-select" id="levelSelect"></div>
+                </div>
+
+                <!-- Challenge -->
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <div class="challenge-meta">
+                            <div class="challenge-badge">
+                                <span>📝</span>
+                                <span>Nível <span
+                                        id="challengeNumber">1</span></span>
+                            </div>
+                            <div id="difficultyBadge"
+                                class="difficulty-badge easy">Fácil</div>
+                        </div>
+                        <div class="challenge-reward">
+                            <span>🏅</span>
+                            <span>+<span id="challengeReward">20</span></span>
+                        </div>
+                    </div>
+
+                    <h3 class="challenge-title" id="challengeTitle">Plantando
+                        sua primeira semente</h3>
+
+                    <p class="challenge-text" id="challengeText">
+                        Crie uma função <code>plantar()</code> que retorne
+                        <code>"semente"</code>.
+                    </p>
+
+                    <div class="concept-box" id="conceptBox">
+                        <h4>🧠 Conceito: Funções</h4>
+                        <p id="conceptText">Funções são blocos de código que
+                            executam tarefas específicas.</p>
+                    </div>
+
+                    <div class="hint-box">
+                        <span>💡</span>
+                        <div>
+                            <button class="hint-toggle" id="hintToggle">Ver
+                                dica</button>
+                            <div class="hint-content" id="hintContent">
+                                Use <code>return "semente"</code> dentro da
+                                função!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Editor -->
+                <div class="editor-card">
+                    <div class="editor-header">
+                        <div class="editor-dot red"></div>
+                        <div class="editor-dot yellow"></div>
+                        <div class="editor-dot green"></div>
+                        <span class="editor-title">solução.js</span>
+                    </div>
+
+                    <textarea class="code-editor" id="codeEditor"
+                        spellcheck="false">// 🌱 Seu código aqui!
+                            function plantar() {
+
+                            }
+                    </textarea>
+
+                    <div class="button-row">
+                        <button class="btn btn-primary" id="runCode">
+                            <span>▶️</span> Executar
+                        </button>
+                        <button class="btn btn-secondary" id="resetCode">
+                            <span>🔄</span> Resetar
+                        </button>
+                    </div>
+
+                    <div class="output-console" id="output">
+                        <div class="output-line neutral">
+                            <span>⏳</span>
+                            <span>Aguardando seu código...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>🌾 <strong>CodeFarm</strong> — Aprenda JavaScript cultivando! Use
+                <kbd>Ctrl</kbd>+<kbd>Enter</kbd> para executar.</p>
+        </footer>
+
+        <!-- Modal -->
+        <div class="modal-overlay" id="successModal">
+            <div class="modal">
+                <div class="modal-icon" id="modalIcon">🎉</div>
+                <h2 id="modalTitle">Parabéns!</h2>
+                <p id="modalText">Você completou o desafio!</p>
+                <div id="unlockBadge" class="unlock-badge"
+                    style="display: none;">🔓 Novo conceito desbloqueado!</div>
+                <div class="reward-display">
+                    <div class="reward-item">
+                        <span>💰</span>
+                        <span id="modalCoins">+20</span>
+                    </div>
+                    <div class="reward-item">
+                        <span>⭐</span>
+                        <span id="modalXP">+25 XP</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="nextChallenge"
+                    style="width: 100%;">
+                    <span>➡️</span> Próximo Nível
+                </button>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
